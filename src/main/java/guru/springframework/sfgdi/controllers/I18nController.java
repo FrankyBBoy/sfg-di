@@ -5,15 +5,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class ConstructorInjectedController {
+public class I18nController {
+
     private final GreetingService greetingService;
 
-    // No need for @Autowired when it's injected through the controller
-    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
+    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    public String getGreeting() {
-        return  greetingService.sayGreeting();
+    public String sayHello() {
+        return greetingService.sayGreeting();
     }
 }
